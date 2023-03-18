@@ -1,0 +1,87 @@
+{% extends 'base.html'%}
+
+{% block page%}Details{% endblock page%}
+{%block button %}
+<li class="nav-item">
+    <a class="nav-link" href="{{url_for('main.home')}}">Home</a>
+</li>
+{%endblock button %}
+
+{%block main%}
+<div class="container py-3">
+    <div class="row about justify-content-center  py-5">
+        <h4>Product details</h4>
+    </div>
+    <section>
+        <div class="row">
+            {%for product in products%}
+            <div class="col-md-6">
+                <div id="image-all" class="carousel slide" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{url_for('static',filename='img/'+ product.main_image)}}" class="d-block w-100"
+                                alt="{{product.name}}">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{url_for('static', filename='img/'+ product.img1)}}" class="d-block w-100"
+                                alt="{{product.name}}">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{url_for('static', filename='img/'+ product.img2)}}" class="d-block w-100"
+                                alt="{{product.name}}">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#image-all" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#image-all" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+            <div id="des" class="col-md-6">
+                <div class="content text-center">
+                    <h3 style="font-weight: bold; ">{{product.name}}</h3>
+                    <div class="tab-content" id="advancedTabContent">
+                        <div class="review">
+                            <div class="stars">
+                                <i class="fa fa-heart text-warning"></i>
+                                <i class="fa fa-heart text-warning"></i>
+                                <i class="fa fa-heart text-warning"></i>
+                                <i class="fa fa-heart text-warning"></i>
+                                <i class="fa fa-heart text-warning"></i>
+                            </div>
+                        </div>
+                        <h5 style="font-weight: bold; ">{{"$%.2f"|format(product.price)}}</h5>
+                        <p class="Details">
+                        <h6 class="text-left">
+                            {{product.description}}
+                            <li>{{product.note1}}</li>
+                            <li>{{product.note2}}</li>
+                            <li>{{product.note3}}</li>
+                        </h6>
+                        </p>
+                    </div>
+                    <form action="{{url_for('main.cart')}}">
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <input class="btn btn-success" type="submit"
+                            style="background-color: rgba(35, 156, 96, 0.575); border: none;" value="Add to cart">
+                    </form>
+                    <div class="container">
+                        <p class="text-justify py-3" style="color:cadetblue"> Note: As most of our items are created by
+                            hand rather than by mechanical means, each peaice of item takes a relative long time to be
+                            completed.
+                            As a result, we have set a restriction of one items per person for purchasing. We
+                            apologize for any inconveience and thank you very much for your understanding.</p>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+
+            {% block head %}{% endblock %}
+
+        </div>
+</div>
+</section>
+</div>
+{%endblock main%}

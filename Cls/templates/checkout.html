@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block page%}Checkout{% endblock page%}
+
+{%block button %}
+<li class="nav-item">
+    <a class="nav-link" href="{{url_for('main.home')}}">Home</a>
+</li>
+{%endblock button %}
+
+{%block main%}
+<div id="bgcheckout" class="container">
+    <div class="space py-4 ">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-warning" role="alert" style="text-align: center; color: crimson;">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <div class="row justify-content-center cofont2">
+        <div class="col-10 my-4 text-center">
+            <p> In order to complete the order, please leave your information and we will be
+                contacting you soon.</p>
+            <p class="text-center"> Should you require any further assistance, please do not hesitate to contact us.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 cofont2">
+            {{wtf.quick_form(form)}}
+        </div>
+    </div>
+    <div class="row justify-content-center py-5 my-5">
+        <div class="col-md-4 text-center cofont2">
+            <ul class="info">
+                <i class="fas fa-map-marker-alt fa-2x icon2"></i>
+                <p>Brisbane, QLD 4000, Australia</p>
+
+            </ul>
+        </div>
+        <div class="col-md-4 text-center cofont2">
+            <ul class="info">
+                <i class="fas fa-mobile-alt fa-2x icon2"></i>
+                <p>+61 000 000 0000</p>
+
+            </ul>
+        </div>
+        <div class="col-md-4 text-center cofont2">
+            <ul class="info">
+                <i class="fas fa-envelope fa-2x icon2"></i>
+                <p>n10839631@qut.edu.au</p>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{%endblock main%}

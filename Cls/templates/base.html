@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/style.css') }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>{% block page%}Cls{% endblock page%}</title>
+    <style>
+        /* for adding more style to the pages later */
+    </style>
+</head>
+
+<body style="font-family:'Times New Roman', Times, serif;">
+    <header class="sticky-top">
+        <!-- header start -->
+        <div id="top"><span>Free shipping on order over $50</span></div> <!-- banner -->
+        <div class="container-fluid bg-white">
+            <div class="row">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-2 text-center" id="shopName">
+                    <a href="{{ url_for('main.home') }}" style="text-decoration: none;">
+                        <h1> Cl.'s </h1>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+        <nav class="navbar navbar-expand-md justify-content-center navbar-light bg-white">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <dFiv class="container">
+                <div class="collapse justify-content-center navbar-collapse" id="nav">
+                    <ul id="navigation" class="navbar-nav">
+                        {%block button %}
+                        {%endblock button %}
+                        <li  class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Clothes
+                            </a>
+                            <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="{{url_for('main.home', _anchor='All_clothes')}}">All
+                                    clothes</a>
+                                {%for clothes_category in c%}
+                                <a class="dropdown-item "
+                                    href="{{url_for('main.items',categoryid=clothes_category.id)}}">{{clothes_category.name}}</a>
+                                <!--items.html-->
+                                {%endfor%}
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Hats
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item disabled bg-light" href="#">All Hats</a>
+                                <a class="dropdown-item disabled bg-light" href="#">Bucket hats</a>
+                                <a class="dropdown-item disabled bg-light" href="#">Berets</a>
+                                <a class="dropdown-item disabled bg-light" href="#">Knit Caps</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Earrings
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item disabled bg-light" href="#">All Earrings</a>
+                                <a class="dropdown-item disabled bg-light" href="#">Clay earrings</a>
+                                <a class="dropdown-item disabled bg-light" href="#">Gold-filled wire</a>
+                                <a class="dropdown-item disabled bg-light" href="#">Silver wire</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Macrame
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item disabled bg-light" href="#">All Macrame</a>
+                                <a class="dropdown-item disabled bg-light" href="#">Bags</a>
+                                <a class="dropdown-item disabled bg-light" href="#">Decorations</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('main.cart') }}">Cart</a>
+                            <!--cart.html-->
+                        </li>
+                    </ul>
+                    <form id="search" class="form-inline" action="{{ url_for('main.search')}}">
+                        <input class="form-control mr-md-2" style="border-color: rgba(12, 134, 18, 0.253);" type="text" placeholder="Search" name="Search">
+                        <button class="btn btn-light my-2 my-sm-0" style="color:rgba(42, 124, 124, 0.856); font-weight: bold;"
+                            type="submit">Search</button>
+                    </form>
+
+                </div>
+                </div>
+        </nav>
+    </header>
+    {%block banner%}
+
+    {%endblock banner%}
+    <main>
+        <div class="container-fluid">
+            {%block main%}
+
+            {%endblock main%}
+        </div>
+    </main>
+    <!-- Fixed bottom Footer starts here -->
+    <nav class="footer fixed-bottom navbar-light bg-light ">
+        <div class="footer text-center text-white">Copyright &copy;2021</div>
+    </nav>
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

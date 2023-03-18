@@ -1,0 +1,215 @@
+{% extends 'base.html'%}
+
+{% block page%}Welcome to Cl's{% endblock page%}
+
+{%block button %}
+<li class="nav-item">
+    <a class="nav-link" href="#aboutus">About us</a>
+</li>
+{%endblock button %}
+
+{%block banner%}
+<!-- Hero image starts -->
+<section class="Hero moveing herotext">
+    <div class="grid">
+        <div class="slogen col">
+            <span id="first">Have your day even more beautiful by wearing...</span>
+            <span id="second">Cl.'s</span>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="alert alert-info" role="alert"
+                style="color: rgba(9, 61, 121, 0.952);font-size: large; font-weight: bold;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</section>
+{%endblock banner%}
+
+{%block main%}
+<section id="aboutus">
+    <div class="py-2 bg-white"></div>
+    <div class="container">
+        <div class="row"></div>
+        <div id="aboutus" class="row about justify-content-center">
+            <h4>About us</h4>
+        </div>
+        <div class="space py-2 bg-white"></div>
+        <div id="next" class="carousel" data-ride="carousel">
+            <ol class="carousel-indicators home">
+                <li data-target="#next" data-slide-to="0" class="active"></li>
+                <li data-target="#next" data-slide-to="1"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <!--Slide 1-3-->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id="card" class="card">
+                                <img class="slide"
+                                    src="https://images.unsplash.com/photo-1605122975227-391201cbf6a9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                                    alt="card6">
+                                <div class="card-body">
+                                    <h4 class="title">Our team</h4>
+                                    <h6 class="description">We are a team of a small group of people, who enjoy
+                                        knitting, sewing, design and making handmade stuff.</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="card" class="card">
+                                <img class="slide"
+                                    src="https://images.pexels.com/photos/4191618/pexels-photo-4191618.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                    alt="card2">
+                                <div class="card-body">
+                                    <h4 class="title">Merino wool</h4>
+                                    <h6 class="description">All the wool we use to knit or crochet is Merino wool, which
+                                        is renowned for its exceptional properties.</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="card" class="card">
+                                <img class="rounded"
+                                    src="https://images.pexels.com/photos/6435/hands-girl-painting-spring-6435.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                    alt="card1">
+                                <div class="card-body">
+                                    <h4 class="title">Handmade</h4>
+                                    <h6 class="description">All of our products are made by hand, so it takes time to be
+                                        produced. Please be patient. And we hope you like our products.</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Slide4-6-->
+                <div class="carousel-item">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id="card" class="card">
+                                <img class="slide"
+                                    src="https://images.unsplash.com/photo-1524623074641-c9fc5ef0a1d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
+                                    alt="card4">
+                                <div class="card-body">
+                                    <h4 class="title">Polymer Clay</h4>
+                                    <h6 class="description">The clay earrings are made of polymer clay, which is a
+                                        durable, water-resistant plastic after baking and totally a non-toxictype
+                                        of material.</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div id="card" class="card">
+                                <img class="slide"
+                                    src="https://images.unsplash.com/photo-1546993036-d3502e2a0c3c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80"
+                                    alt="card5">
+                                <div class="card-body">
+                                    <h4 class="title">Unique Design</h4>
+                                    <h6 class="description">All of the items are designed and made by us. You won't see
+                                        anyone wear the same kind of clothes or accessories as you.</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="card" class="card">
+                                <img class="slide"
+                                    src="https://images.unsplash.com/photo-1560577938-a5ed9b19fe12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                                    alt="card3">
+                                <div class="card-body">
+                                    <h4 class="title">Metal material</h4>
+                                    <h6 class="description">All the silver earrings are stamped sterling silver and the
+                                        gold metal part of the earrings is used of gold-filled wire</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spaceb py-4 bg-white"></div>
+    </div>
+
+</section>
+<!-- All Clothes starts -->
+<section id="All_clothes">
+    <div class="Clothes py-4 ">
+        <div class="card-deck">
+            <div class="container-fluid px-5 bg-light">
+                <div class="row about justify-content-center">
+                    <h4>Clothes</h4>
+                </div>
+                {%for row in products | batch(4)%}
+                <!--batch filter is for creating new row for the cards for than 4 cuz each row contains 4 cards -->
+                <div class="row  py-4">
+                    {%for product in row%}
+                    <div class="col-sm-6 col-md-3">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="{{url_for('static',filename='img/'+ product.main_image)}}"
+                                alt="image">
+                            <div class="card-body text-center d-flex flex-column ">
+                                <h5 class="card-title">{{product.name}}</h5>
+                                <h6 class="product-price" style="font-weight: bold;">{{"$%.2f"|format(product.price)}}
+                                </h6>
+                                <a href="{{url_for('main.details',detailid=product.id)}}"
+                                    class="btn btn-light text-info mt-auto">View more</a>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Subscription part starts here -->
+<div class="container-fluid subs">
+    <div class="row">
+        <div class="col-md-2 text-center">
+            <h4 for="inputEmail" class="text-info">Subscription</h4>
+        </div>
+        <div class="col-md-4">
+            <form id="Subs" action="{{url_for('main.subscribe')}}" method="POST" class="input-group">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="Subs" name="Subs" placeholder="Enter your email here">
+                </div>
+                <span class="input-group-btn">
+                    <div class="col-sm-4 offset-sm-4">
+                        <button id="btns" type="submit" class="btn bg-light">Submit</button>
+                    </div>
+                </span>
+            </form>
+        </div>
+        <!-- <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email here"> -->
+
+        <div class="col-md-2 text-center text-info">
+            <ul class="info">
+                <i class="fas fa-map-marker-alt fa-2x icon"></i>
+                <p>Brisbane, QLD 4000, Australia</p>
+            </ul>
+        </div>
+        <div class="col-md-2 text-center text-info ">
+            <ul class="info">
+                <i class="fas fa-mobile-alt fa-2x icon"></i>
+                <p>+61 000 000 0000</p>
+            </ul>
+        </div>
+        <div class="col-md-2 text-center text-info">
+            <ul class="info">
+                <i class="fas fa-envelope fa-2x icon"></i>
+                <p>n10839631@qut.edu.au</p>
+            </ul>
+        </div>
+    </div>
+</div>
+{%endblock main%}

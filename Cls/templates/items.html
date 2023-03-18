@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+
+{% block page%}Items{% endblock page%}
+
+{%block button %}
+<li class="nav-item">
+    <a class="nav-link" href="{{url_for('main.home')}}">Home</a>
+</li>
+{%endblock button %}
+
+{%block main%}
+<section id="clothes">
+    <div class="Clothes py-4 bg-light">
+        <div id="clothes" class="container-fluid px-4">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="alert alert-warning" role="alert" style="text-align: center; color: crimson;">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+            <div class="row mx-2">
+                <div class="col-md-12">
+                    <div class="card-deck">
+                        <div class="card">
+                            {%for row in p | batch(4)%}
+                            <!--batch filter is for creating new row for the cards for than 4 cuz each row contains 4 cards -->
+                            <div class="row  py-4">
+                                {%for product in row%}
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="card  h-100 ">
+                                        <img class="card-img-top"
+                                            src="{{url_for('static',filename='img/'+product.main_image)}}" alt="image">
+                                        <div class="card-body text-center d-flex flex-column">
+                                            <h5 class="card-title">{{product.name}}</h5>
+                                            <h6 class="product-price" style="font-weight: bold;">
+                                                </i>{{"$%.2f"|format(product.price)}}</h6>
+                                            <a href="{{url_for('main.details', detailid=product.id)}}"
+                                                class="btn btn-light text-info mt-auto ">View more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {%endfor%}
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+{%endblock main%}

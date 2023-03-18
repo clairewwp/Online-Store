@@ -1,0 +1,91 @@
+{% extends 'base.html'%}
+
+{% block page%}Shopping cart{% endblock page%}
+
+{%block button %}
+<li class="nav-item">
+    <a class="nav-link" href="{{url_for('main.home')}}">Home</a>
+</li>
+{%endblock button %}
+{%block main%}
+<div class="container">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="space py-4 bg-white">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <div class="alert alert-warning" role="alert" style="text-align: center; color: crimson;">
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+
+                </div>
+                <h4 class="text-center text-primary">
+                    <i class="fa fa-shopping-basket text-warning" aria-hidden="true"></i>
+                    &emsp;&emsp; My shopping cart &emsp;&emsp;
+                    <i class="fa fa-shopping-cart text-warning" aria-hidden="true"></i>
+                </h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <table class="table table-responsive">
+                    <table class="table table-sm-responsive text-center">
+                        <thead>
+                            <tr>
+                                <th>Product image</th>
+                                <th>Product name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        {%for product in cart.products%}
+                        <tbody>
+                            <tr>
+                                <td><img width="80" height="120"
+                                        src="{{url_for('static', filename=('img/'+product.main_image))}}"
+                                        alt="item image"></td>
+                                <td>{{product.name}}</td>
+                                <td id="text-align">
+                                    {{product.description}}
+                                </td>
+                                <td>{{"$%.2f"|format(product.price)}}</td>
+                                <td>
+                                    <form method="POST" action="{{url_for('main.deletesingleitem')}}">
+                                        <input type="hidden" id="id" name="id" value="{{product.id}}">
+                                        <input type="submit" value="Delete" class="btn btn-light">
+                                    </form>
+                                </td>
+                            </tr> {%endfor%}
+                            <tr>
+                                <td colspan="4" class="text-right">
+                                    <strong>Sub total</strong>
+                                </td>
+                                <td>{{"$%.2f"|format(subtotal)}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="checkout text-center">
+                        <a class="btn text-white"
+                            style="background-color: rgba(43, 139, 194, 0.658);font-weight: bold; border: none;"
+                            href="{{url_for('main.deleteall')}}" role="button">Empty cart</a>
+                        &emsp;&emsp;
+                        <a class="btn text-white"
+                            style="background-color:rgba(22, 126, 56, 0.637); font-weight: bold;border: none;"
+                            href="{{url_for('main.checkout')}}" role="button">Check out</a>
+                        <div class="space py-4 bg-white"></div>
+                    </div>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+{%endblock main%}

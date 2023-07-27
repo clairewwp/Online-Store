@@ -29,6 +29,14 @@ To run the My Commercial Store app locally on your machine, follow these steps:
 3. To start the app, run the following command: python3 run.py (in my case)
 4. This will launch the development server, and you can access the app in your web browser at http://localhost:5000/.
 
+### Interacting with the Database:
+The My Commercial Store app uses SQLite to store and manage data. 
+To interact with the database, you can use the following commands in your project terminal:
+* To access the SQLite database file "Cls.sqlite" in the terminal: sqlite3 Cls.sqlite
+* To see all the tables in the database: .tables
+* To view the schema of a specific table (e.g., "clothes" table): .schema clothes
+* To perform SQL queries on the database, you can use standard SQL commands (e.g., SELECT, INSERT, UPDATE, DELETE).
+
 ### Live Demo
 Check out the live demo of the My Commercial Store app : [My Commercial Store - Live Demo](https://youtu.be/fV6NDiDYvbo)
 

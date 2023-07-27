@@ -1,4 +1,4 @@
-# Online-shop
+# Online-shop - A web app of my e-commerce store
 This project is to develop a web application implementation of an ecommerce store.
 This application includes 4 dynamic pages with the use of SQLite. 
 

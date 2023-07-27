@@ -1,7 +1,11 @@
 # Online-shop - Web app
 ## Welcome to My Commercial Store!
-![Screenshot (2)](https://user-images.githubusercontent.com/104426974/226088338-03910952-7a34-4aa2-924e-f75cacadb9bf.png)
+![image](https://github.com/clairewwp/Online-Store/assets/104426974/f973b2b1-11e9-4d70-ade6-0413612ef921)
+![image](https://github.com/clairewwp/Online-Store/assets/104426974/9505ff06-c900-49f8-ae32-4ba3608898b2)
 
+![image](https://github.com/clairewwp/Online-Store/assets/104426974/b9bb22c8-c0d7-4abe-abf2-7d35f6cab7cb)
+
+![image](https://github.com/clairewwp/Online-Store/assets/104426974/5b0382fb-f305-40a6-8e96-b4479672c2ab)
 
 This project aims to develop a web application as an e-commerce store. The application includes 4 dynamic pages with the use of SQLite.
 

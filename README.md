@@ -1,4 +1,4 @@
-# Online-shop - Web app
+# Online Shop - Web App
 ## Welcome to My Commercial Store!
 ![image](https://github.com/clairewwp/Online-Store/assets/104426974/f973b2b1-11e9-4d70-ade6-0413612ef921)
 ![image](https://github.com/clairewwp/Online-Store/assets/104426974/9505ff06-c900-49f8-ae32-4ba3608898b2)
